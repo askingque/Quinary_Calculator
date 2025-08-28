@@ -1,13 +1,23 @@
-def convert_to_decimal(quinary_number: str) -> int:
+def convert_to_decimal(quinary_number) -> int:
+    decimal_num = 0
+    
     # move from left to right in the string
     # multiply the current total by 5
     # add the parsed digit to the total
-    
-    decimal_num = 0
-    for ch in quinary_number:
-        decimal_num = 5 * decimal_num
-        parsed = int(ch)
-        decimal_num += parsed
+    if quinary_number is str:
+        for ch in quinary_number:
+            decimal_num = 5 * decimal_num
+            parsed = int(ch)
+            decimal_num += parsed
+            
+
+    else:
+        i = 0
+        while quinary_number > 0:
+            decimal_num = decimal_num + (quinary_number % 10) * (5 ** i)
+            quinary_number //= 10
+            i += 1
+        
 
     return decimal_num
 
@@ -30,6 +40,8 @@ def convert_to_quinary(decimal_number) -> int:
         decimal_parsed //= 5
         i += 1
     return quinary_num
+
+
 
 def add(quinary_1, quinary_2) -> int:
     decimal_1 = convert_to_decimal(quinary_1)
@@ -63,3 +75,5 @@ def square(quinary) -> int:
     return decimal ** 2
 
 
+
+print(convert_to_decimal(100)) # 25
