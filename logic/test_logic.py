@@ -33,3 +33,6 @@ class TestLogic(unittest.TestCase):
 
     def testSqrt(self):
         self.assertEqual(sqrt(5), 5)
+
+if __name__ == '__main__':
+    unittest.main()
