@@ -1,1 +1,4 @@
-unittest
+# this file lists all python packages required to run and test the Quinary Calculator project
+# do not add standard library modiles like 'unittests' here
+# learned that the hard way
+# update this list when adding/removing dependencies
