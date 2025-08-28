@@ -1,12 +1,12 @@
 import unittest
-from logic.logic import convert_to_decimal
-from logic.logic import convert_to_quinary
-from logic.logic import add
-from logic.logic import subtract
-from logic.logic import multiply
-from logic.logic import divide
-from logic.logic import sqrt
-from logic.logic import square
+from logic import convert_to_decimal
+from logic import convert_to_quinary
+from logic import add
+from logic import subtract
+from logic import multiply
+from logic import divide
+from logic import sqrt
+from logic import square
 
 
 class TestLogic(unittest.TestCase):
