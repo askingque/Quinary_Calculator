@@ -1,7 +1,21 @@
 import tkinter as tk
-from ..logic import logic
+
+import importlib.util
+import sys
+
+file_path = "/Users/tyler/OneDrive/Desktop/GitHub Repos/Quinary_Calculator/logic/logic.py"
+module_name = "logic"
+
+spec = importlib.util.spec_from_file_location(module_name, file_path)
+logic = importlib.util.module_from_spec(spec)
+sys.modules[module_name] = logic
+spec.loader.exec_module(logic)
 
 fieldText = ""
+
+symbol = ""
+num1 = ""
+num2 = ""
 
 quin = False
 
@@ -13,21 +27,74 @@ def addToField(sth):
 
 def calculate():
     global fieldText
-    result=str(eval(fieldText))
+    result = ""
+    num2 = fieldText
     field.delete("1.0","end")
-    field.insert("1.0", result)
-    fieldText = ""
+    if(symbol == "+"):
+        result = str(logic.add(int(num1), int(num2)))
+    elif(symbol == "-"):
+        result = str(logic.subtract(int(num1), int(num2)))
+    elif(symbol == "/"):
+        result = str(logic.divide(int(num1), int(num2)))
+    elif(symbol == "*"):
+        result = str(logic.multiply(int(num1), int(num2)))
+    addToField(result)
+
+        
+
     
 
 def clear():
     global fieldText
+    global num1
+    global num2
+    global symbol
+    num1 = ""
+    num2 = ""
+    symbol = ""
+
     fieldText = ""
     field.delete("1.0","end")
 
+def buttonPressAdd():
+    global fieldText
+    global num1
+    global symbol
+    symbol += "+"
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+
+def buttonPressSub():
+    global fieldText
+    global num1
+    global symbol
+    symbol += "-"
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+
+def buttonPressDiv():
+    global fieldText
+    global num1
+    global symbol
+    symbol += "/"
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+
+def buttonPressMult():
+    global fieldText
+    global num1
+    global symbol
+    symbol += "*"
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
 
 
 window =  tk.Tk()
-window.geometry("300x300")
+window.geometry("400x400")
 window['background'] = "black"
 field=tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
 field.grid(row=1, column = 1, columnspan=4)
@@ -52,16 +119,16 @@ btn4.grid(row=2, column = 5, pady = 10)
 
 #Operations Buttons
 
-btnDiv = tk.Button(window, text="/", command=lambda: addToField("/"), width = 5, font = ("Times New Roman", 14))
+btnDiv = tk.Button(window, text="/", command=lambda: buttonPressDiv, width = 5, font = ("Times New Roman", 14))
 btnDiv.grid(row=3, column = 4, pady = 10)
 
-btnMult = tk.Button(window, text="*", command=lambda: addToField("*"), width = 5, font = ("Times New Roman", 14))
+btnMult = tk.Button(window, text="*", command=lambda: buttonPressMult(), width = 5, font = ("Times New Roman", 14))
 btnMult.grid(row=3, column = 3, pady = 10)
 
-btnAdd = tk.Button(window, text="+", command=lambda: addToField("+"), width = 5, font = ("Times New Roman", 14))
+btnAdd = tk.Button(window, text="+", command=lambda: buttonPressAdd(), width = 5, font = ("Times New Roman", 14))
 btnAdd.grid(row=3, column = 1, pady = 10)
 
-btnSub = tk.Button(window, text="-", command=lambda: addToField("-"), width = 5, font = ("Times New Roman", 14))
+btnSub = tk.Button(window, text="-", command=lambda: buttonPressSub(), width = 5, font = ("Times New Roman", 14))
 btnSub.grid(row=3, column = 2, pady = 10)
 
 btnClr = tk.Button(window, text="Clear", command=lambda: clear(), width = 5, font = ("Times New Roman", 14))
@@ -73,7 +140,7 @@ btnTog.grid(row=4, column = 1, pady = 10)
 btnSqrt = tk.Button(window, text="sqrt", command=lambda: logic.sqrt(int(fieldText)), width = 5, font = ("Times New Roman", 14))
 btnSqrt.grid(row=4, column = 2, pady = 10)
 
-btnSqr = tk.Button(window, text="sqr", command=lambda: logic.sqr(int(fieldText)) , width = 5, font = ("Times New Roman", 14))
+btnSqr = tk.Button(window, text="sqr", command=lambda: logic.square(int(fieldText)) , width = 5, font = ("Times New Roman", 14))
 btnSqr.grid(row = 4, column = 3)
 
 btnEqu = tk.Button(window, text="=", command=lambda: calculate(), width = 20, font = ("Times New Roman", 14))
