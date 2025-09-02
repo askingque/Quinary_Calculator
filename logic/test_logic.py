@@ -16,6 +16,8 @@ class TestLogic(unittest.TestCase):
     def testConvertToQuinary(self):
         self.assertEqual(convert_to_quinary(5), 10)
 
+
+    #ALL ARE (quinary) -> (decimal)
     def testAddition(self):
         self.assertEqual(add(1, 10), 6)
 
