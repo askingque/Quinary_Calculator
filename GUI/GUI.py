@@ -33,9 +33,7 @@ def addToField(sth):
 
 def calculate():
     global fieldText
-    global num1
     global num2
-    global symbol
     result = ""
     num2 = fieldText
     field.delete("1.0","end")
