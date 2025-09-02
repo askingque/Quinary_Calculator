@@ -16,23 +16,25 @@ class TestLogic(unittest.TestCase):
     def testConvertToQuinary(self):
         self.assertEqual(convert_to_quinary(5), 10)
 
+
+    #ALL ARE (quinary) -> (decimal)
     def testAddition(self):
-        self.assertEqual(add(1, 5), 11)
+        self.assertEqual(add(1, 10), 6)
 
     def testSubtraction(self):
-        self.assertEqual(subtract(5,10), 15)
+        self.assertEqual(subtract(10, 4), 1)
 
     def testMultiplication(self):
-        self.assertEqual(multiply(5, 10), 15)
+        self.assertEqual(multiply(4, 10), 20)
 
     def testDivision(self):
-        self.assertEqual(divide(5, 10), 15)
+        self.assertEqual(divide(100, 10), 5)
 
     def testSquare(self):
-        self.assertEqual(square(5), 5)
+        self.assertEqual(square(10), 25)
 
     def testSqrt(self):
-        self.assertEqual(sqrt(5), 5)
+        self.assertEqual(sqrt(100), 5)
 
 if __name__ == '__main__':
     unittest.main()
