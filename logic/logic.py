@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def convert_to_decimal(quinary_number) -> int: # what does -> int do? JD
     return int(str(quinary_number), 5)
@@ -23,7 +24,7 @@ def divide(quinary_1, quinary_2) -> int:
 def sqrt(quinary) -> int:
     if quinary < 0:
         return "No root"
-    return convert_to_quinary(convert_to_decimal(quinary)**0.5)
+    return convert_to_quinary(math.floor(math.sqrt(convert_to_decimal(quinary))))
 
 def square(quinary) -> int:
     return convert_to_quinary(convert_to_decimal(quinary)**2)
