@@ -27,22 +27,26 @@ def addToField(sth):
 
 def calculate():
     global fieldText
+    global num1
+    global num2
+    global symbol
     result = ""
     num2 = fieldText
-    field.delete("1.0","end")
     if(symbol == "+"):
         result = str(logic.add(int(num1), int(num2)))
+        print(result)
     elif(symbol == "-"):
         result = str(logic.subtract(int(num1), int(num2)))
+        print(result)
     elif(symbol == "/"):
         result = str(logic.divide(int(num1), int(num2)))
+        print(result)
     elif(symbol == "*"):
         result = str(logic.multiply(int(num1), int(num2)))
-    addToField(result)
-
-        
-
-    
+        print(result)
+    field.delete("1.0","end")
+    fieldText = result
+    addToField(fieldText)
 
 def clear():
     global fieldText
@@ -62,6 +66,7 @@ def buttonPressAdd():
     global symbol
     symbol += "+"
     num1 = fieldText
+    print(symbol + num1)
     field.delete("1.0","end")
     fieldText = ""
 
