@@ -11,12 +11,18 @@ logic = importlib.util.module_from_spec(spec)
 sys.modules[module_name] = logic
 spec.loader.exec_module(logic)
 
+global fieldText
+global symbol
+global num1
+global num2
+global quin
+
+
 fieldText = ""
 
 symbol = ""
 num1 = ""
 num2 = ""
-
 quin = True
 
 def addToField(sth):
@@ -134,7 +140,7 @@ window =  tk.Tk()
 window.geometry("400x400")
 window['background'] = "black"
 field=tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
-field.grid(row=1, column = 1, columnspan=4)
+field.grid(row=1, column = 1, columnspan=5)
 
 
 #Number Buttons
@@ -172,15 +178,15 @@ btnClr = tk.Button(window, text="Clear", command=lambda: clear(), width = 5, fon
 btnClr.grid(row=3, column = 5, pady = 10)
 
 btnTog = tk.Button(window, text="Tog", command=lambda: buttonPressToggle() , width = 5, font = ("Times New Roman", 14))
-btnTog.grid(row=4, column = 1, pady = 10)
+btnTog.grid(row=4, column = 3, pady = 10)
 
 btnSqrt = tk.Button(window, text="sqrt", command=lambda: buttonPressSqrt(), width = 5, font = ("Times New Roman", 14))
-btnSqrt.grid(row=4, column = 2, pady = 10)
+btnSqrt.grid(row=4, column = 4, pady = 10)
 
 btnSqr = tk.Button(window, text="sqr", command=lambda: buttonPressSqu() , width = 5, font = ("Times New Roman", 14))
-btnSqr.grid(row = 4, column = 3)
+btnSqr.grid(row = 4, column = 5, pady = 10)
 
 btnEqu = tk.Button(window, text="=", command=lambda: calculate(), width = 20, font = ("Times New Roman", 14))
-btnEqu.grid(row=4, column = 4, columnspan=2, pady = 10)
+btnEqu.grid(row=4, column = 1, columnspan=2, pady = 10)
 
 window.mainloop()
