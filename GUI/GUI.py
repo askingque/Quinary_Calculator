@@ -17,7 +17,7 @@ symbol = ""
 num1 = ""
 num2 = ""
 
-quin = False
+quin = True
 
 def addToField(sth):
     global fieldText
@@ -32,21 +32,22 @@ def calculate():
     global symbol
     result = ""
     num2 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
     if(symbol == "+"):
-        result = str(logic.add(int(num1), int(num2)))
+        addToField(logic.add(int(num1), int(num2)))
         print(result)
     elif(symbol == "-"):
-        result = str(logic.subtract(int(num1), int(num2)))
+        addToField(logic.subtract(int(num1), int(num2)))
         print(result)
     elif(symbol == "/"):
-        result = str(logic.divide(int(num1), int(num2)))
+        addToField(logic.divide(int(num1), int(num2)))
         print(result)
     elif(symbol == "*"):
-        result = str(logic.multiply(int(num1), int(num2)))
+        addToField(str(logic.multiply(int(num1), int(num2))))
         print(result)
-    field.delete("1.0","end")
-    fieldText = result
-    addToField(fieldText)
+    
+    
 
 def clear():
     global fieldText
@@ -97,6 +98,37 @@ def buttonPressMult():
     field.delete("1.0","end")
     fieldText = ""
 
+def buttonPressSqu():
+    global fieldText
+    global num1
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+    addToField(str(logic.square(int(num1))))
+
+def buttonPressSqrt():
+    global fieldText
+    global num1
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+    addToField(str(logic.sqrt(int(num1))))
+
+def buttonPressToggle():
+    global num1
+    global fieldText
+    global quin
+    num1 = fieldText
+    field.delete("1.0","end")
+    fieldText = ""
+    if quin == True:
+        addToField(str(logic.convert_to_decimal(int(num1))))
+        quin = False
+    elif quin == False:
+        addToField(str(logic.convert_to_quinary(int(num1))))
+        quin = True
+    
+    
 
 window =  tk.Tk()
 window.geometry("400x400")
@@ -124,7 +156,7 @@ btn4.grid(row=2, column = 5, pady = 10)
 
 #Operations Buttons
 
-btnDiv = tk.Button(window, text="/", command=lambda: buttonPressDiv, width = 5, font = ("Times New Roman", 14))
+btnDiv = tk.Button(window, text="/", command=lambda: buttonPressDiv(), width = 5, font = ("Times New Roman", 14))
 btnDiv.grid(row=3, column = 4, pady = 10)
 
 btnMult = tk.Button(window, text="*", command=lambda: buttonPressMult(), width = 5, font = ("Times New Roman", 14))
@@ -139,13 +171,13 @@ btnSub.grid(row=3, column = 2, pady = 10)
 btnClr = tk.Button(window, text="Clear", command=lambda: clear(), width = 5, font = ("Times New Roman", 14))
 btnClr.grid(row=3, column = 5, pady = 10)
 
-btnTog = tk.Button(window, text="Tog", command=lambda: logic.convert_to_decimal(int(fieldText)) if quin is True else logic.convert_to_quinary(int(fieldText)), width = 5, font = ("Times New Roman", 14))
+btnTog = tk.Button(window, text="Tog", command=lambda: buttonPressToggle() , width = 5, font = ("Times New Roman", 14))
 btnTog.grid(row=4, column = 1, pady = 10)
 
-btnSqrt = tk.Button(window, text="sqrt", command=lambda: logic.sqrt(int(fieldText)), width = 5, font = ("Times New Roman", 14))
+btnSqrt = tk.Button(window, text="sqrt", command=lambda: buttonPressSqrt(), width = 5, font = ("Times New Roman", 14))
 btnSqrt.grid(row=4, column = 2, pady = 10)
 
-btnSqr = tk.Button(window, text="sqr", command=lambda: logic.square(int(fieldText)) , width = 5, font = ("Times New Roman", 14))
+btnSqr = tk.Button(window, text="sqr", command=lambda: buttonPressSqu() , width = 5, font = ("Times New Roman", 14))
 btnSqr.grid(row = 4, column = 3)
 
 btnEqu = tk.Button(window, text="=", command=lambda: calculate(), width = 20, font = ("Times New Roman", 14))
