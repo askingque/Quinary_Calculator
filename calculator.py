@@ -19,9 +19,7 @@ from math import floor
     Keep for a bit to see if this issue comes back up?
                 """
 
-global fieldText
 fieldText = ""
-global quin
 quin = False
 
 def addToField(sth):
@@ -31,7 +29,6 @@ def addToField(sth):
     field.insert("1.0", fieldText)
 
 def calculate():
-    global quin
     global fieldText
     result = ""
     if quin:
@@ -62,8 +59,8 @@ def clear():
     field.delete("1.0","end")
     
     
-def toggle_conversion(): 
-    global quin
+def toggle_conversion():
+    global quin 
     global fieldText
     if not fieldText:
         return
@@ -83,7 +80,6 @@ def toggle_conversion():
     btnTog.config(text="Quin" if quin else "Dec")  # update button text
     
 def square():
-    global quin
     global fieldText
     if quin:
         result = str(core_logic.square(fieldText))
@@ -96,7 +92,6 @@ def square():
     fieldText = result # DON"T TOUCH
     
 def sqrt():
-    global quin
     global fieldText
     if quin:
         result = str(core_logic.sqrt(fieldText))
