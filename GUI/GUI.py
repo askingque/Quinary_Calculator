@@ -15,9 +15,11 @@ quin = True
 
 def addToField(sth):
     global fieldText
+    field.config(state='normal')
     fieldText = fieldText+str(sth)
     field.delete("1.0","end")
     field.insert("1.0", fieldText)
+    field.config(state='disabled')
 
 def calculate():
     global fieldText
@@ -48,8 +50,10 @@ def clear():
     num2 = ""
     symbol = ""
 
+    field.config(state='normal')
     fieldText = ""
     field.delete("1.0","end")
+    field.config(state='disabled')
 
 def buttonPressAdd():
     global fieldText
