@@ -19,8 +19,9 @@ from math import floor
     Keep for a bit to see if this issue comes back up?
                 """
 
+global fieldText
 fieldText = ""
-
+global quin
 quin = False
 
 def addToField(sth):
