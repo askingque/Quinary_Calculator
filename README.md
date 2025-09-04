@@ -11,11 +11,11 @@
 
 
 ## Functional requirements breakdown
-* GUI setup: Tyler Robertson, Chris Silhavy, JD Otis
-* Logic: JD Otis and Noah King
-* Logic Testing: JP Rogers
-* README: Chris Silhavy
-* Repository Creation: Noah King
+* JD Otis = GUI, Test Automation, logic
+* Tyler Robertson = GUI setup
+* JP Rogers = Logic Testing
+* Noah King: Logic, Repository setup
+* Chris Silhavy: ReadME, GUI
 
 ## Instructions
 * After loading file into your local drive, input in the terminal ".venv\scripts\activate" to start your virtual space
