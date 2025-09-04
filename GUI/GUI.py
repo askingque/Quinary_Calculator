@@ -68,7 +68,6 @@ def run():
         global num1
         global symbol
         global equals
-        global quin
         if quin == False:
             buttonPressToggle()
         symbol += "+"
@@ -85,7 +84,6 @@ def run():
         global num1
         global symbol
         global equals
-        global quin
         if quin == False:
             buttonPressToggle()
         symbol += "-"
@@ -101,7 +99,6 @@ def run():
         global num1
         global symbol
         global equals
-        global quin
         if quin == False:
             buttonPressToggle()
         symbol += "/"
@@ -117,7 +114,6 @@ def run():
         global num1
         global symbol
         global equals
-        global quin
         if quin == False:
             buttonPressToggle()
         symbol += "*"
@@ -131,7 +127,6 @@ def run():
     def buttonPressSqu():
         global fieldText
         global num1
-        global quin
         if quin == False:
             buttonPressToggle()
         if fieldText == "Cannot divide by zero" or fieldText == "No root":
@@ -144,7 +139,6 @@ def run():
     def buttonPressSqrt():
         global fieldText
         global num1
-        global quin
         if quin == False:
             buttonPressToggle()
         if fieldText == "Cannot divide by zero" or fieldText == "No root":
