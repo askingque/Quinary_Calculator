@@ -129,7 +129,7 @@ def run():
         global num1
         if quin == False:
             buttonPressToggle()
-        if fieldText == "Cannot divide by zero" or fieldText == "No root":
+        if fieldText == "Cannot divide by zero" or fieldText == "No root" or fieldText == "":
             fieldText = "0"
         num1 = fieldText
         field.delete("1.0","end")
@@ -141,7 +141,7 @@ def run():
         global num1
         if quin == False:
             buttonPressToggle()
-        if fieldText == "Cannot divide by zero" or fieldText == "No root":
+        if fieldText == "Cannot divide by zero" or fieldText == "No root" or fieldText == "":
             fieldText = "0"
         num1 = fieldText
         field.delete("1.0","end")
@@ -172,7 +172,6 @@ def run():
     window.resizable(False, False)
     window['background'] = "black"
     field=tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
-    field.config(state='disabled')
     field.grid(row=1, column = 1, columnspan=5)
     field.config(state='disabled')
 
