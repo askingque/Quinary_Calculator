@@ -15,9 +15,11 @@ quin = True
 
 def addToField(sth):
     global fieldText
+    field.config(state='normal')
     fieldText = fieldText+str(sth)
     field.delete("1.0","end")
     field.insert("1.0", fieldText)
+    field.config(state='disabled')
 
 def calculate():
     global fieldText
@@ -48,8 +50,10 @@ def clear():
     num2 = ""
     symbol = ""
 
+    field.config(state='normal')
     fieldText = ""
     field.delete("1.0","end")
+    field.config(state='disabled')
 
 def buttonPressAdd():
     global fieldText
@@ -121,7 +125,7 @@ def buttonPressToggle():
 def run():
     global field
     window =  tk.Tk()
-    window.geometry("400x400")
+    window.geometry("400x300")
     window['background'] = "black"
     field=tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
     field.grid(row=1, column = 1, columnspan=5)
