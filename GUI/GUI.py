@@ -172,6 +172,7 @@ def run():
     window.resizable(False, False)
     window['background'] = "black"
     field=tk.Text(window, height=2, width=21, font=("Times New Roman", 20))
+    field.config(state='disabled')
     field.grid(row=1, column = 1, columnspan=5)
     field.config(state='disabled')
 
