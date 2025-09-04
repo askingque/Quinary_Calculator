@@ -147,20 +147,24 @@ def run():
     btn4.grid(row=2, column = 5, pady = 10)
 
     #Operations Buttons
-    btnDiv = tk.Button(window, text="/", command=lambda: buttonPressDiv(), width = 5, font = ("Times New Roman", 14))
-    btnDiv.grid(row=3, column = 4, pady = 10)
 
-    btnMult = tk.Button(window, text="*", command=lambda: buttonPressMult(), width = 5, font = ("Times New Roman", 14))
-    btnMult.grid(row=3, column = 3, pady = 10)
-
-    btnAdd = tk.Button(window, text="+", command=lambda: buttonPressAdd(), width = 5, font = ("Times New Roman", 14))
+    btnAdd = tk.Button(window, text="+",command=lambda: buttonPressAdd(), width = 5, font = ("Times New Roman", 14))
     btnAdd.grid(row=3, column = 1, pady = 10)
 
     btnSub = tk.Button(window, text="-", command=lambda: buttonPressSub(), width = 5, font = ("Times New Roman", 14))
     btnSub.grid(row=3, column = 2, pady = 10)
 
+    btnMult = tk.Button(window, text="x", command=lambda: buttonPressMult(), width = 5, font = ("Times New Roman", 14))
+    btnMult.grid(row=3, column = 3, pady = 10)
+
+    btnDiv = tk.Button(window, text="/", command=lambda: buttonPressDiv(), width = 5, font = ("Times New Roman", 14))
+    btnDiv.grid(row=3, column = 4, pady = 10)
+
     btnClr = tk.Button(window, text="Clear", command=lambda: clear(), width = 5, font = ("Times New Roman", 14))
     btnClr.grid(row=3, column = 5, pady = 10)
+
+    btnEqu = tk.Button(window, text="=", command=lambda: calculate(), width = 11, font = ("Times New Roman", 14))
+    btnEqu.grid(row=4, column = 1, columnspan = 2, pady = 10)
 
     btnTog = tk.Button(window, text="Tog", command=lambda: buttonPressToggle() , width = 5, font = ("Times New Roman", 14))
     btnTog.grid(row=4, column = 3, pady = 10)
@@ -169,9 +173,6 @@ def run():
     btnSqrt.grid(row=4, column = 4, pady = 10)
 
     btnSqr = tk.Button(window, text="sqr", command=lambda: buttonPressSqu() , width = 5, font = ("Times New Roman", 14))
-    btnSqr.grid(row = 4, column = 5, pady = 10)
-
-    btnEqu = tk.Button(window, text="=", command=lambda: calculate(), width = 20, font = ("Times New Roman", 14))
-    btnEqu.grid(row=4, column = 1, columnspan=2, pady = 10)
+    btnSqr.grid(row=4, column = 5, pady = 10)
 
     window.mainloop()
